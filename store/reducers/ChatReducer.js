@@ -1,4 +1,4 @@
-import { ADD_TO_TEST, TOGGLE_HAPPY } from './../ChatActions';
+import { ADD_TO_TEST, TOGGLE_HAPPY, NEW_CHAT } from './../ChatActions';
 // import from dummy data to access chat
 import { CHATROOM } from './../../data/dummy-data';
 
@@ -30,9 +30,20 @@ const ChatReducer = (state = initialState, action) => {
             }
  
         case NEW_CHAT:
+
+        const chatroom = state.chatrooms.find(room => room.id === action.payload.chatroomId);
+        const chatmessages = [...chatroom.chatMessages, action.payload.message];
+
+        const newChatRoom = { ...chatroom };
+        newChatRoom.chatMessages = chatmessages;
+
+        const index = state.chatrooms.findIndex(room => room.id === action.payload.chatroomId);
+        const chatroomArray = [...state.chatrooms];
+        chatroomArray.splice(index, 1, newChatRoom);
+
             return {
                 ...state,
-                newChat: [...state.newChat, action.payload]
+                chatrooms: chatroomArray
             }
 
         default:

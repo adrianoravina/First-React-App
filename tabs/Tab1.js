@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 
+
+
 function Tab1 () {
 
     return (

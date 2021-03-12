@@ -5,6 +5,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Home from "./screens/Home.js";
 import Settings from "./drawers/Settings.js";
 
+
+
 const Drawer = createDrawerNavigator();
 
 
@@ -12,6 +14,8 @@ const Drawer = createDrawerNavigator();
 function App () {
 
     return (
+
+      
 
       <NavigationContainer>
 
