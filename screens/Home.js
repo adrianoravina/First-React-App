@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import TodoView from "./TodoView.js";
 import Details from "./Details.js";
-import Screen3 from "./Screen3.js";
+import Discover from "./Discover.js";
 
 
 
@@ -15,7 +15,7 @@ function Home () {
 <Stack.Navigator>
       <Stack.Screen name="Todo" component={TodoView} />
       <Stack.Screen name="Details" component={Details} />
-      <Stack.Screen name="Screen3" component={Screen3} />
+      <Stack.Screen name="Discover" component={Discover} />
     </Stack.Navigator>
       
     );

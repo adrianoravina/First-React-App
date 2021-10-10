@@ -14,14 +14,12 @@ const Drawer = createDrawerNavigator();
 function App () {
 
     return (
-
-      
-
       <NavigationContainer>
 
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Settings" component={Settings} />
+        
       </Drawer.Navigator>
     
       </NavigationContainer>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 
 const Tab2 = props => {
@@ -8,7 +8,7 @@ const Tab2 = props => {
     return (
         <View style={styles.container}>
       
-        Tab2
+      <Text>Tab1</Text>
        </View>
     );
 }
