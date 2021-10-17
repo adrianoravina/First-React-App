@@ -2,22 +2,20 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 
+const MyRecipes = props => {
 
-
-function Tab1 () {
 
     return (
         <View style={styles.container}>
       
-        <Text>Tab1</Text>
+      <Text>Tab2</Text>
        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      marginTop: 100
+      flex: 1
     },
   
     newTodo: {
@@ -25,4 +23,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default Tab1;
+export default Tab2;

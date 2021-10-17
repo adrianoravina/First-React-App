@@ -10,7 +10,7 @@ import Business from "../../tabs/Business.js";
 
 const Tab = createBottomTabNavigator();
 
-function App() {
+function Home() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 100,
-  },
+  }
 });
 
-export default App;
+export default Home;

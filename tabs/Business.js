@@ -2,13 +2,13 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 
-const Tab2 = props => {
+const Business = props => {
 
 
     return (
         <View style={styles.container}>
       
-      <Text>Tab1</Text>
+      <Text>Tab2</Text>
        </View>
     );
 }

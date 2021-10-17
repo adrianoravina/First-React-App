@@ -3,7 +3,7 @@ import { StyleSheet, View, TextInput, FlatList, Button, Text } from 'react-nativ
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-import  TodoItem  from '../components/TodoItem.js';
+import  TodoItem  from '../../components/TodoItem.js';
 
 function TodoView  ( { navigation } )  {
 
