@@ -8,7 +8,7 @@ const Business = props => {
     return (
         <View style={styles.container}>
       
-      <Text>Tab2</Text>
+      <Text>Business</Text>
        </View>
     );
 }
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default Tab2;
+export default Business;

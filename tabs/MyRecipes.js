@@ -1,6 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
+import { createStackNavigator } from "@react-navigation/stack";
+
+
+import Recipes from "./../screens/Recipes.js"
+import RecipeDetail from "./../screens/RecipeDetail.js"
+
+const Stack = createStackNavigator();
+
 
 const MyRecipes = props => {
 
@@ -8,7 +16,23 @@ const MyRecipes = props => {
     return (
         <View style={styles.container}>
       
-      <Text>Tab2</Text>
+      <Stack.Navigator>
+
+        <Stack.Screen
+          name="Recipes"
+          component={Recipes}
+          options={{
+            title: "My Recipes",
+          }}
+        />
+        <Stack.Screen
+          name="RecipeDetail"
+          component={RecipeDetail}
+          options={{
+            gestureEnabled: false,
+          }}
+        />
+      </Stack.Navigator>
        </View>
     );
 }
@@ -23,4 +47,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default Tab2;
+export default MyRecipes;

@@ -1,39 +1,33 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-import Recipes from "./screens/Recipes.js"
-import RecipeDetail from "./screens/RecipeDetail.js"
+import Recipes from "./../screens/Recipes.js"
+import RecipeDetail from "./../screens/RecipeDetail.js"
 
 import { createStackNavigator } from "@react-navigation/stack";
 
-const DiscoverStack = createStackNavigator();
+const Stack = createStackNavigator();
 
-function Discover() {
+const Discover = props => {
   return (
     <View style={styles.container}>
-      <DiscoverStack.Navigator
-        initialRouteName="Recipes"
-        screenOptions={{
-          headerMode: "screen",
-          headerTintColor: "white",
-          headerStyle: { backgroundColor: "tomato" },
-        }}
-      >
-        <DiscoverStack.Screen
+      <Stack.Navigator>
+
+        <Stack.Screen
           name="Recipes"
           component={Recipes}
           options={{
             title: "World Recipes",
           }}
         />
-        <DiscoverStack.Screen
+        <Stack.Screen
           name="RecipeDetail"
           component={RecipeDetail}
           options={{
             gestureEnabled: false,
           }}
         />
-      </DiscoverStack.Navigator>
+      </Stack.Navigator>
     </View>
   );
 }
@@ -41,7 +35,6 @@ function Discover() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 100,
   },
 
   newTodo: {},
