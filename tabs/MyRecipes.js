@@ -4,36 +4,37 @@ import { StyleSheet, View, Text } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 
 
-import Recipes from "./../screens/Recipes.js"
-import RecipeDetail from "./../screens/RecipeDetail.js"
+import RecipesScreen from "../screens/RecipesScreen.js"
+import RecipeDetailScreen from "../screens/RecipeDetailScreen.js"
 
 const Stack = createStackNavigator();
 
 
 const MyRecipes = props => {
 
-
     return (
-        <View style={styles.container}>
-      
+        
       <Stack.Navigator>
 
         <Stack.Screen
-          name="Recipes"
-          component={Recipes}
+          name="MyRecipesScreen"
+          component={RecipesScreen}
           options={{
             title: "My Recipes",
+            headerShown: false
           }}
         />
         <Stack.Screen
-          name="RecipeDetail"
-          component={RecipeDetail}
+          name="MyRecipeDetailScreen"
+          component={RecipeDetailScreen}
           options={{
-            gestureEnabled: false,
+            title: "My Recipes Deatils",
+            gestureEnabled: true,
+            headerShown: true
           }}
         />
       </Stack.Navigator>
-       </View>
+     
     );
 }
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-import Recipes from "./../screens/Recipes.js"
-import RecipeDetail from "./../screens/RecipeDetail.js"
+import RecipesScreen from "../screens/RecipesScreen.js"
+import RecipeDetailScreen from "../screens/RecipeDetailScreen.js"
 
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -10,31 +10,35 @@ const Stack = createStackNavigator();
 
 const Discover = props => {
   return (
-    <View style={styles.container}>
+    
+
       <Stack.Navigator>
 
         <Stack.Screen
-          name="Recipes"
-          component={Recipes}
+          name="RecipesScreen"
+          component={RecipesScreen}
           options={{
             title: "World Recipes",
+            headerShown: false
           }}
         />
         <Stack.Screen
-          name="RecipeDetail"
-          component={RecipeDetail}
+          name="RecipeDetailScreen"
+          component={RecipeDetailScreen}
           options={{
-            gestureEnabled: false,
+            title: "Recipe Details",
+            gestureEnabled: true,
+            headerShown: true
           }}
         />
       </Stack.Navigator>
-    </View>
+      
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
 
   newTodo: {},
