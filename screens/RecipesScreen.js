@@ -15,16 +15,6 @@ var RECIPES = [
 
 const RecipesScreen = ({ navigation, route }) => {
 
-  /*
-
-  const [recipesResult, setRecipeResult] = useState();
-
-  useEffect(() => {
-    
-    setRecipeResult([])
-  }, [recipesResult])
-  */
-
   if (route.name === "MyRecipesScreen") {
 
     RECIPES = RECIPES.filter(value => value.liked === true)
@@ -41,9 +31,6 @@ const RecipesScreen = ({ navigation, route }) => {
         renderItem={(itemData) => (
 
           <View>
-
-
-
             <Image
               style={styles.recipeImage}
               source={require('../data/roasted-chicken.jpg')}

@@ -8,15 +8,6 @@ const Recipe = (props) => {
 
   var detailScreen = "";
 
-  //console.log(props.name)
-
-  /*
-  
-
-  
-
-  */
-
   if (props.parentScreen === "MyRecipesScreen") {
 
     detailScreen = "MyRecipeDetailScreen";
@@ -27,18 +18,12 @@ const Recipe = (props) => {
 
   }
 
-
   return (
     <TouchableOpacity onPress={() =>
       props.navigation.navigate(detailScreen, { id: props.id, name: props.name })
     }
     >
-
-
-
         <View style={styles.info}>
-
-
           <Text style={styles.id}>Identification num: {props.id}</Text>
           <Text style={styles.name}>{props.name}</Text>
         </View>

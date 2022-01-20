@@ -41,23 +41,37 @@ const RecipeDetailScreen = (props) => {
   return (
     <ScrollView style={styles.container}>
 
-      <ImageBackground source={require('../data/roasted-chicken.jpg')} style={styles.recipeImage}>
-
+      <ImageBackground
+        source={require('../data/roasted-chicken.jpg')}
+        style={styles.recipeImage}
+      >
         <Text style={styles.name}>{props.route.params.name}</Text>
 
-        <Info infoData={info} />
+        <Info
+          infoData={info}
+        />
 
       </ImageBackground>
+
+      {
+      //End of img background 
+      //Information card
+      }
 
       <View style={styles.infoCard}>
 
         <Text style={styles.factsTitle}>Nutritional Facts</Text>
 
-        <Ingredients ingredientsData={ingredients} />
+        <Ingredients
+          ingredientsData={ingredients}
+          navigation={props.navigation}
+        />
 
         <Text style={styles.stepsTitle}>Steps</Text>
 
-        <Steps stepsData={steps} />
+        <Steps
+          stepsData={steps}
+        />
 
       </View>
 
@@ -84,7 +98,7 @@ const styles = StyleSheet.create({
   },
 
   name: {
-    paddingTop: 50,
+    paddingTop: 200,
     color: "white",
     fontSize: 40,
     fontWeight: "bold",
