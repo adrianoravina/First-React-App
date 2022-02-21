@@ -2,28 +2,27 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 
-const Ingredientes = (props) => {
+const Ingredients = (props) => {
 
     return (
 
         <TouchableOpacity onPress={() =>
             props.navigation.navigate("NutritionScreen", { ingredients: props.ingredientsData })
         }
+        style={{margin:20, justifyContent:'center'}}
         >
 
-            <View style={styles.infoContainer}>
+            <View>
                 {
                     Object.entries(props.ingredientsData).map(([item, value], index) => {
-                        //console.log(`${item}: ${value} : ${index}`)
 
                         return (
 
+                            <View style={{margin:2, flexDirection: 'row', justifyContent:'center',
+                            height: 20, borderRadius: 50}} key={index}>
 
-                            <View style={styles.infoRow} key={index}>
-
-                                <Text style={styles.id} >{item} : {value}</Text>
+                                <Text style={styles.id} >{item} : <Text style={{fontWeight:'bold'}}>{value}</Text></Text>
                             </View>
-
 
                         );
 
@@ -42,12 +41,11 @@ const Ingredientes = (props) => {
 
 const styles = StyleSheet.create({
 
-    infoContainer: {},
-    infoRow: {},
-    id: {
-        backgroundColor: '#ff5733'
-    },
-
+    id:{
+        
+        color:'black'
+    }
+    
 
 });
-export default Ingredientes;
+export default Ingredients;

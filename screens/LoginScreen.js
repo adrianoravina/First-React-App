@@ -6,10 +6,15 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthState
 import { auth } from '../firebase/config';
 import { useNavigation } from '@react-navigation/native';
 
+import { useDispatch } from "react-redux";
+import { saveUser } from "./../store/UserActions";
+
 const LoginScreen = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const dispatch = useDispatch();
 
     const navigation = useNavigation();
 
@@ -17,6 +22,8 @@ const LoginScreen = () => {
 
         onAuthStateChanged(auth, user => {
             if(user){
+
+                dispatch(saveUser(user.email))
 
                 navigation.navigate("Main")
 

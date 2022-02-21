@@ -1,6 +1,6 @@
 import { ADD_TO_TEST, TOGGLE_HAPPY, NEW_CHAT } from './../ChatActions';
 // import from dummy data to access chat
-import { CHATROOM } from './../../data/dummy-data';
+import { CHATROOM } from '../../data/dummy-data';
 
 const initialState = {
     happy: false,

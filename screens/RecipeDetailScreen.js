@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { View, ScrollView, FlatList, StyleSheet, Button, Text, ImageBackground } from "react-native";
+import { View, ScrollView, StyleSheet, Text, Image } from "react-native";
 
 import { getDatabase, ref, child, get } from "firebase/database";
 
@@ -8,8 +8,7 @@ import Info from "../components/Info.jsx"
 import Ingredients from "../components/Ingredients.jsx"
 import Steps from "../components/Steps.jsx"
 
-
-const image = require('../data/roasted-chicken.jpg');
+import {IMAGES} from './../data/images/recipe_images.js'
 
 const RecipeDetailScreen = (props) => {
 
@@ -17,6 +16,12 @@ const RecipeDetailScreen = (props) => {
   const [info, setInfo] = useState({});
   const [ingredients, setIngredients] = useState({});
   const [steps, setSteps] = useState({});
+
+  const img = IMAGES[props.route.params.name]
+
+  console.log(img)
+
+
 
   const dbRef = ref(getDatabase())
 
@@ -28,6 +33,7 @@ const RecipeDetailScreen = (props) => {
         setInfo(snapshot.val()["Info"])
         setIngredients(snapshot.val()["Ingredients"])
         setSteps(snapshot.val()["Steps"])
+
 
       } else {
         console.log("No data available")
@@ -41,24 +47,30 @@ const RecipeDetailScreen = (props) => {
   return (
     <ScrollView style={styles.container}>
 
-      <ImageBackground
-        source={require('../data/roasted-chicken.jpg')}
-        style={styles.recipeImage}
-      >
+      <Image
+        source={{
+          uri : img}}
+        style={{
+          width: "100%",
+          height: 200,
+        }}
+      />
+        <View style={styles.backgroundName}>
         <Text style={styles.name}>{props.route.params.name}</Text>
+        </View>
 
         <Info
+        
           infoData={info}
         />
 
-      </ImageBackground>
 
       {
       //End of img background 
       //Information card
       }
 
-      <View style={styles.infoCard}>
+      <View  >
 
         <Text style={styles.factsTitle}>Nutritional Facts</Text>
 
@@ -67,9 +79,8 @@ const RecipeDetailScreen = (props) => {
           navigation={props.navigation}
         />
 
-        <Text style={styles.stepsTitle}>Steps</Text>
-
         <Steps
+        
           stepsData={steps}
         />
 
@@ -81,32 +92,21 @@ const RecipeDetailScreen = (props) => {
 
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "teal"
-  },
   factsTitle: {
-
-    color: "white",
-    fontSize: 20,
-
+    color: "black",
+    fontSize: 25,
+    marginTop:20,
+    textAlign:'center',
+    fontWeight:'bold'
   },
-  stepsTitle: {
-
-    color: "white",
-    fontSize: 20,
-
-  },
-
   name: {
-    paddingTop: 200,
-    color: "white",
+    color: "black",
     fontSize: 40,
     fontWeight: "bold",
+    textAlign: "center",
+    marginVertical: 10
+    
   },
-  recipeImage: {
-
-
-  }
 });
 
 export default RecipeDetailScreen;

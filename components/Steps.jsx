@@ -9,7 +9,6 @@ const Steps = (props) => {
         <View style={styles.infoContainer}>
             {
                     Object.entries(props.stepsData).map(([item, value], index) => {
-                        //console.log(`${item}: ${value} : ${index}`)
 
                         return (
 
@@ -18,7 +17,6 @@ const Steps = (props) => {
                                 <Text style={styles.id} >{item}</Text>
                                 <Text style={styles.name} >{value}</Text>
                             </View>
-
 
                         );
 
@@ -35,13 +33,18 @@ const Steps = (props) => {
 
 const styles = StyleSheet.create({
 
-    infoContainer: {},
-    infoRow: {},
     id: {
-        backgroundColor: '#ff5733'
+        backgroundColor: "#BB33EF",
+        
+        fontSize:20,
+        color:'white',
+        padding:10
     },
     name: {
-        
+        backgroundColor: "#BB33EF",
+        color:'white',
+        padding:10,
+        fontWeight: 'bold',
     },
 
 

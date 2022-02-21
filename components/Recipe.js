@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
 
+import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+import {IMAGES} from './../data/images/recipe_images.js'
+
 const Recipe = (props) => {
+
+  const img = IMAGES[props.name]
 
   var detailScreen = "";
 
@@ -23,10 +28,40 @@ const Recipe = (props) => {
       props.navigation.navigate(detailScreen, { id: props.id, name: props.name })
     }
     >
-        <View style={styles.info}>
-          <Text style={styles.id}>Identification num: {props.id}</Text>
-          <Text style={styles.name}>{props.name}</Text>
+      <Image
+        style={styles.recipeImage}
+        source={{
+          uri : img}}
+        style={{
+          width: "100%",
+          height: 200,
+          borderRadius: 50
+        }}
+      />
+      <View style={styles.info}>
+        <Text style={styles.name}>{props.name}</Text>
+
+        
+
+
+      </View>
+
+      <View style={{
+          position: 'absolute',
+          right: 0,
+          bottom:0
+        }}>
+
+          <Icon
+            raised
+            name='star'
+            type='font-awesome'
+            color='#11C45F'
+
+          />
+
         </View>
+
 
     </TouchableOpacity>
   );
@@ -34,57 +69,26 @@ const Recipe = (props) => {
 
 
 const styles = StyleSheet.create({
-  item: {
-
-    flexDirection: "column",
-    padding: 10,
-
-    backgroundColor: '#ddd',
-    borderStyle: "solid",
-    borderWidth: 1,
-  },
-  recipePhoto: {
-    position: "absolute",
-                    top: 25,
-                    right: 20,
-                    width: "90%",
-                    height: 200,
-  },
 
   info: {
-    flexDirection: "column",
-    //padding: 10,
+    position: 'absolute',
+    bottom: 0,
+    height: 50,
+    width: 150,
+    backgroundColor: 'white',
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row'
 
-  },
-
-  id: {
-    backgroundColor: '#ff5733'
   },
   name: {
-    color: "white",
-    backgroundColor: '#33FF71',
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 35,
-    },
-    shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7,
+    fontSize: 16,
     fontWeight: 'bold',
-    fontSize: 30,
-    textAlign: 'right'
-  },
-
-  facts: {
-    backgroundColor: '#FF3390'
-
-  },
-
-  box: {
-    padding: 10,
-    borderStyle: "solid",
-    borderWidth: 1,
+    fontStyle: 'italic',
   }
+
+
 });
 export default Recipe;

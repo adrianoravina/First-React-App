@@ -1,60 +1,64 @@
 import React, { useEffect, useState } from "react";
 
 import { View, FlatList, StyleSheet, SafeAreaView, Image, Text } from "react-native";
+import { getDatabase, ref, child, get } from "firebase/database";
 
 import Recipe from "../components/Recipe";
 
-var RECIPES = [
-  { id: '1', name: 'Roasted Chicken', liked: true },
-  { id: '2', name: 'Tandoori Chicken', liked: false },
-  { id: '3', name: 'Biryani Chicken', liked: true },
-  { id: '4', name: 'Fried Chicken', liked: true },
-  { id: '5', name: 'Butter Chicken', liked: false }
-]
+const RecipesScreen = ({ navigation }) => {
 
+  const [recipes, setRecipes] = useState([]);
+  const dbRef = ref(getDatabase())
 
-const RecipesScreen = ({ navigation, route }) => {
+  useEffect(() => {
 
-  if (route.name === "MyRecipesScreen") {
+    get(child(dbRef, `/Recipes`)).then((snapshot) => {
+      if (snapshot.exists()) {
 
-    RECIPES = RECIPES.filter(value => value.liked === true)
+        const data = Object.keys(snapshot.val())
+        setRecipes(data)
 
-  }
+      } else {
+        console.log("No data available")
+      }
+    }).catch((error) => {
+      console.error(error)
+    })
+
+  }, [])
+
 
   return (
     <SafeAreaView style={styles.container}>
 
+      <Text style={{fontWeight: 'bold', fontSize:40, marginLeft:10, marginTop:10}}>New</Text>
+      <Text style={{fontWeight: 'bold', fontSize:40, marginLeft:10}}>Recipes</Text>
+
+     
 
       <FlatList
 
-        data={RECIPES}
+        data={recipes}
         renderItem={(itemData) => (
 
-          <View>
-            <Image
-              style={styles.recipeImage}
-              source={require('../data/roasted-chicken.jpg')}
-            />
+          <View style={{margin:5}}>
 
             <Recipe
-            style={styles.recipeComponent}
-              id={itemData.item.id}
-              name={itemData.item.name}
-              liked={itemData.item.name}
+              style={styles.recipeComponent}
+              name={itemData.item}
               navigation={navigation}
-              parentScreen={route.name}
             ></Recipe>
 
           </View>
 
-
-
         )}
+        contentContainerStyle={{
+          paddingHorizontal: 15,
+          paddingBottom: 30
+        }}
         keyExtractor={(item, index) => index.toString()}
 
-
       />
-
 
     </SafeAreaView>
   );
@@ -62,21 +66,8 @@ const RecipesScreen = ({ navigation, route }) => {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-    // flexDirection: 'column',
-  },
-  recipeImage: {
-    flex:1,
-    width: '100%',
-    height:200,
-    padding: 100,
-    
-  },
-  recipeComponent: {
 
-  }
-  
+
 });
 
 export default RecipesScreen;
