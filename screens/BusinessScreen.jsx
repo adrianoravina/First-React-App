@@ -26,13 +26,13 @@ const BusinessScreen = (props) => {
 
 
   return (
-    <View>
+    <View style={{flex:1}}>
 
       <Image
         source={require("../data/images/foodboutique.jpg")}
         style={{
           width: "100%",
-          height: 100,
+          height: 150,
         }}
       />
 
@@ -41,6 +41,7 @@ const BusinessScreen = (props) => {
         data={data}
         renderItem={(itemData) => (
           <Product
+          
             product={itemData.item}
             navigation={props.navigation}
           />

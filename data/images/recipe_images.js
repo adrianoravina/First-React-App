@@ -11,5 +11,7 @@ export const IMAGES = {
 export const PRODUCTS = {
     "Three Amigos Coffee" : "https://zippypixels.com/wp-content/uploads/2018/03/Free-coffee-bag-mockup.jpg",
     "Sunrise Coffee" : "https://cdn.shopify.com/s/files/1/0485/4707/0108/products/CT_PRODUCTS_SOCIAL_DOG_000-SRP-C.jpg?v=1635790361",
-    "Blue Mountain Coffee" : "https://cdn.shopify.com/s/files/1/0485/4707/0108/products/CT_PRODUCTS_FANCY_MOUSE_000-SRP-C.jpg?v=1635808685"
+    "Blue Mountain Coffee" : "https://cdn.shopify.com/s/files/1/0485/4707/0108/products/CT_PRODUCTS_FANCY_MOUSE_000-SRP-C.jpg?v=1635808685",
+    "Red Fox Sparkling Cider":"https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/202006/29/00118730600725____1__600x600.jpg",
+    "Red Fox Apple Juice":"https://aldprdproductimages.azureedge.net/media/resized/$Aldi_GB/16.06.21/4088600056425_0_XL.jpg"
 }

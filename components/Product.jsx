@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
+import {PRODUCTS} from './../data/images/recipe_images.js'
 
 const Product = (props) => {
+
+    const img = PRODUCTS[props.product.name]
 
     return (
 
@@ -16,14 +19,14 @@ const Product = (props) => {
                         <Text style={styles.name} >{props.product.name}</Text>
                         <Text style={styles.price} >DKK{props.product.price}</Text>
                         <Text style={styles.description} >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
                     </View>
 
                     <View style={styles.column}>
 
                         <Image
-                            source={require("../data/images/roasted-chicken.jpg")}
+                            source={{
+                                uri : img}}
 
                             style={{
                                 width: 160,
@@ -57,6 +60,7 @@ const styles = StyleSheet.create({
 
     },
     container: {
+        
         flexDirection: 'row'
     },
     column: {

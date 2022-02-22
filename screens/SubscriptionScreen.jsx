@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 
-import { View, ScrollView, StyleSheet, SafeAreaView, Text } from "react-native";
+import { ScrollView, StyleSheet, SafeAreaView } from "react-native";
 import { useSelector } from "react-redux";
 
 import { PricingCard, colors } from 'react-native-elements';
@@ -9,19 +9,16 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 import shoppingService from "../services/shopping.service.js";
 
-import { auth } from '../firebase/config';
-import { onAuthStateChanged } from "firebase/auth";
 
 
 
 const SubscriptionScreen = (props) => {
 
-    const [customerId, setCustomerId] = useState();
     const product = props.route.params.product;
     const productId = props.route.params.product.idproducts;
-    const productPrice = "$" + `${product.price}`
-    const productPrice15 = "$" + `${Math.floor(parseFloat(product.price) * 6 - ((parseFloat(product.price) * 6 * 15) / 100))}`
-    const productPrice25 = "$" + `${Math.floor(parseFloat(product.price) * 12 - ((parseFloat(product.price) * 12 * 25) / 100))}`
+    const productPrice = "DKK" + `${product.price}`
+    const productPrice15 = "DKK" + `${Math.floor(parseFloat(product.price) * 6 - ((parseFloat(product.price) * 6 * 15) / 100))}`
+    const productPrice25 = "DKK" + `${Math.floor(parseFloat(product.price) * 12 - ((parseFloat(product.price) * 12 * 25) / 100))}`
 
     const user_email = useSelector(
         (state) => state.user["user"][0]
@@ -30,7 +27,7 @@ const SubscriptionScreen = (props) => {
 
     const submitPurchase = async (price, subPackage) => {
 
-        const floatPrice = parseFloat(price.replace("$", ""));
+        const floatPrice = parseFloat(price.replace("DKK", ""));
 
         console.log(Math.random() * 100 + "xxxxx1xxddb" + Date.now())
 
@@ -38,7 +35,7 @@ const SubscriptionScreen = (props) => {
             product_id: productId,
             total_price: floatPrice,
             tracking_number: Math.floor(Math.random() * 100) + "xxxxx1xxddb" + Date.now(),
-            customer_id: customerId,
+            customer_id: user_email,
             qty: subPackage
         }
 

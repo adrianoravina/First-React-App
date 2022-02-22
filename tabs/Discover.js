@@ -12,7 +12,6 @@ const Stack = createStackNavigator();
 const Discover = props => {
   return (
 
-
     <Stack.Navigator>
 
       <Stack.Screen

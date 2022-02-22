@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React from "react";
 
 import { View, ScrollView, StyleSheet, SafeAreaView, Text } from "react-native";
 import NutritionData from "../components/NutritionData.jsx"
